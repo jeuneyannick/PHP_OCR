@@ -1,6 +1,10 @@
 <?php 
 
+function loadClass($class){
+    require $class . '.php' ; 
+}
 
+spl_autoload_register('loadClass'); 
 
 class PersonnageManager
 // Cette classe a pour but de gerer les entités de la BDD représenté par la classe Personnage
@@ -73,13 +77,7 @@ class PersonnageManager
     }
 
 }
- function loadClass($class){
-     require $class . 'php' ; 
- }
- loadClass(Personnage); 
-
- spl_autoload_register('loadClass'); 
-
+ 
 
 
 $perso = new Personnage([

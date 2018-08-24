@@ -1,5 +1,5 @@
 <?php 
-
+// Les éllements qui n'apartiennent qu'à la classe sont les éléments statiques. 
 class Personnage 
 {
     //Les attributs toujours en privé 
@@ -12,7 +12,10 @@ class Personnage
     private static $_textADire = 'Je serais le meilleur développeur du monde un jour !'; 
 
     //Déclarations des constantes en rapport avec la force 
-
+    /*
+    Les constantes de classe permettent de comprendre rapidement plus les scripts. 
+    Leur valeur ne change pas. 
+    */
     const FORCE_PETITE = 20; 
     const FORCE_MOYENNE = 50; 
     const FORCE_GRANDE = 80; 
@@ -38,6 +41,7 @@ class Personnage
         }
         
     }
+    //Les méthodes et attributs de type static, tout comme les constantes de classe, appartiennent à la classe et non aux objets instanciés.
     public static function parler(){
         //Pour appeler un attribut ou une fonction en statique, ne pas utiliser le mot clé this mais self 
     
@@ -47,12 +51,10 @@ class Personnage
 }
 
 
-//En instanciant la classe, on envoie au constructeur une des forces identifiées 
-
-
+//En instanciant la classe, on envoie au constructeur une des forces identifiées
 
 $newPerso = new Personnage(Personnage::FORCE_MOYENNE); 
 //appel préférentiel d'une méthode statique 
-$newPerso::parler(); 
+Personnage::parler(); 
 echo'<br />';
 $newPerso->parler(); 
