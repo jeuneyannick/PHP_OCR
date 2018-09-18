@@ -1,13 +1,11 @@
 <?php 
 
-
 class Personnage
 {
     //Attributs de nos futurs objets 
     private $_id;
     private $_nom;
-    private $_degats;
-    private $_experience; 
+    private $_degats; 
 
     //Notre constructeur 
     public function __construct(array $data){
@@ -21,16 +19,13 @@ class Personnage
 
     //Les getters 
     public function id(){
-        return $his->_id; 
+        return $this->_id; 
     }
     public function nom(){
-        return $his->_nom;  
-    }
-    public function experience(){
-        return $his->_experience; 
+        return $this->_nom;  
     }
     public function degats(){
-        return $his->_degats; 
+        return $this->_degats; 
     }
     //Les setters 
 
@@ -45,13 +40,6 @@ class Personnage
             $this->_nom = $nom; 
         }
     }
-    public function setExperience($experience){
-        $experience = (int) $experience; 
-        if($experience >= 0 && $experience < 100){
-            $this->_experience = $experience; 
-        }
-
-    } 
     public function setDegats($degats){
         $degats = (int) $degats; 
         if($degats >= 0 && $degats < 100){
@@ -74,7 +62,7 @@ class Personnage
         //On augmente les degats de 5 
        $this->_degats += 5; 
 
-       if( $this->degats >= 100){
+       if( $this->_degats >= 100){
            return self::PERSONNAGE_TUE; 
        }
 
@@ -91,8 +79,13 @@ class Personnage
 
             if (method_exists($this, $method)){
 
-                $this->method($value); 
+                $this->$method($value); 
             }
         }
     }
+    public function nomValide()
+    {
+      return !empty($this->_nom);
+    }
+    
 }

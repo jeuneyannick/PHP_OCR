@@ -72,4 +72,18 @@ public function setNiveau($niveau){
         $this->_niveau = $niveau; 
     }
 }
+public function recevoirDegats()
+  {
+    $this->_degats += 5;
+    
+    // Si on a 100 de dégâts ou plus, on dit que le personnage a été tué.
+    if ($this->_degats >= 100)
+    {
+      return "Il est mort !!";
+    }
+    
+    // Sinon, on se contente de dire que le personnage a bien été frappé.
+    return "Aie j'ai mal ";
+  }
+
 }

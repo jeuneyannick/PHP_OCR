@@ -5,7 +5,7 @@ class Personnage //Création de la classe où nous ferons des objets représenta
 //Cette classe a pour rôle de représenter une ligne dans la BDD. Donc un personnage c'est tout.
 {
     //Les atttibuts de notre classe pour nos objets 
-
+ 
     private $_id; 
     private $_nom; 
     private $_niveau; 
@@ -25,10 +25,10 @@ class Personnage //Création de la classe où nous ferons des objets représenta
         // Pour hydrater l'objet, on va faire une boucle sur l'array reçu contenant les données dont chaque clé correspond à un attribut de notre objet
      foreach($data as $key => $value){
 
-        //On créer une variable qui contient set + le nom de des clés du tableaux pour vérifier..
+        //On créer une variable qui contient set + le nom des clés du tableaux pour vérifier..
 
         $method = 'set' .ucfirst($key); 
-        // Avec la méthode method_exists(), on va vérifier si le contenu de la variable crée correspond bien aux setters de notre classe
+        // Avec la méthode method_exists(), on va vérifier si le contenu de la variable crée correspond bien aux setters (setNomdelattribut) de notre classe
         if(method_exists($this,$method)){
             //si la variable correspond aux setters, on assigne les valeurs 
           $this->method($value); 
